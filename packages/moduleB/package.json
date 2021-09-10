@@ -1,5 +1,5 @@
 {
-  "name": "query",
+  "name": "query-test",
   "version": "1.0.5",
   "description": "A Component Library for Vue.js.",
   "main": "lib/element-ui.common.js",
@@ -148,5 +148,5 @@
     "webpack-dev-server": "^3.1.11",
     "webpack-node-externals": "^1.7.2"
   },
-  "gitHead": "bc452ea1fbd5071ca5edf9cbd7e4c32f6ce9c680"
+  "gitHead": "d6732d50064609393457f612633da915416c0132"
 }
