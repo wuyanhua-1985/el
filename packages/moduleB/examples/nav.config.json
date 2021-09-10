@@ -33,11 +33,11 @@
       "name": "组件",
       "groups": [
         {
-          "groupName": "Business",
+          "groupName": "Basic",
           "list": [
             {
-              "path": "/dialog",
-              "title": "Dialog 对话框"
+              "path": "/query",
+              "title": "query"
             }
           ]
         }
@@ -78,11 +78,11 @@
       "name": "组件",
       "groups": [
         {
-          "groupName": "Business",
+          "groupName": "Basic",
           "list": [
             {
-              "path": "/dialog",
-              "title": "Dialog 对话框"
+              "path": "/query",
+              "title": "query"
             }
           ]
         }
@@ -123,11 +123,11 @@
       "name": "组件",
       "groups": [
         {
-          "groupName": "Business",
+          "groupName": "Basic",
           "list": [
             {
-              "path": "/dialog",
-              "title": "Dialog 对话框"
+              "path": "/query",
+              "title": "query"
             }
           ]
         }
@@ -168,11 +168,11 @@
       "name": "组件",
       "groups": [
         {
-          "groupName": "Business",
+          "groupName": "Basic",
           "list": [
             {
-              "path": "/dialog",
-              "title": "Dialog 对话框"
+              "path": "/query",
+              "title": "query"
             }
           ]
         }

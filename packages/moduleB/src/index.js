@@ -2,11 +2,11 @@
 
 import Pagination from '../packages/pagination/index.js';
 import Dialog from '../packages/dialog/index.js';
-import Autocomplete from '../packages/autocomplete/index.js';
 import Dropdown from '../packages/dropdown/index.js';
 import DropdownMenu from '../packages/dropdown-menu/index.js';
 import DropdownItem from '../packages/dropdown-item/index.js';
 import Menu from '../packages/menu/index.js';
+import Query from '../packages/query/index.js';
 import Submenu from '../packages/submenu/index.js';
 import MenuItem from '../packages/menu-item/index.js';
 import MenuItemGroup from '../packages/menu-item-group/index.js';
@@ -40,7 +40,6 @@ import Tabs from '../packages/tabs/index.js';
 import TabPane from '../packages/tab-pane/index.js';
 import Tag from '../packages/tag/index.js';
 import Tree from '../packages/tree/index.js';
-import Alert from '../packages/alert/index.js';
 import Notification from '../packages/notification/index.js';
 import Slider from '../packages/slider/index.js';
 import Loading from '../packages/loading/index.js';
@@ -66,7 +65,6 @@ import ColorPicker from '../packages/color-picker/index.js';
 import Transfer from '../packages/transfer/index.js';
 import Container from '../packages/container/index.js';
 import Header from '../packages/header/index.js';
-import Aside from '../packages/aside/index.js';
 import Main from '../packages/main/index.js';
 import Footer from '../packages/footer/index.js';
 import Timeline from '../packages/timeline/index.js';
@@ -79,7 +77,6 @@ import Backtop from '../packages/backtop/index.js';
 import InfiniteScroll from '../packages/infinite-scroll/index.js';
 import PageHeader from '../packages/page-header/index.js';
 import CascaderPanel from '../packages/cascader-panel/index.js';
-import Avatar from '../packages/avatar/index.js';
 import Drawer from '../packages/drawer/index.js';
 import Popconfirm from '../packages/popconfirm/index.js';
 import Skeleton from '../packages/skeleton/index.js';
@@ -94,7 +91,6 @@ import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 const components = [
   Pagination,
   Dialog,
-  Autocomplete,
   Dropdown,
   DropdownMenu,
   DropdownItem,
@@ -131,7 +127,6 @@ const components = [
   TabPane,
   Tag,
   Tree,
-  Alert,
   Slider,
   Icon,
   Row,
@@ -154,7 +149,6 @@ const components = [
   Transfer,
   Container,
   Header,
-  Aside,
   Main,
   Footer,
   Timeline,
@@ -166,7 +160,6 @@ const components = [
   Backtop,
   PageHeader,
   CascaderPanel,
-  Avatar,
   Drawer,
   Popconfirm,
   Skeleton,
@@ -175,7 +168,8 @@ const components = [
   Descriptions,
   DescriptionsItem,
   Result,
-  CollapseTransition
+  CollapseTransition,
+  Query
 ];
 
 const install = function(Vue, opts = {}) {
@@ -196,7 +190,6 @@ const install = function(Vue, opts = {}) {
 
   Vue.prototype.$loading = Loading.service;
   Vue.prototype.$msgbox = MessageBox;
-  Vue.prototype.$alert = MessageBox.alert;
   Vue.prototype.$confirm = MessageBox.confirm;
   Vue.prototype.$prompt = MessageBox.prompt;
   Vue.prototype.$notify = Notification;
@@ -218,7 +211,6 @@ export default {
   Loading,
   Pagination,
   Dialog,
-  Autocomplete,
   Dropdown,
   DropdownMenu,
   DropdownItem,
@@ -256,7 +248,6 @@ export default {
   TabPane,
   Tag,
   Tree,
-  Alert,
   Notification,
   Slider,
   Icon,
@@ -281,7 +272,6 @@ export default {
   Transfer,
   Container,
   Header,
-  Aside,
   Main,
   Footer,
   Timeline,
@@ -294,7 +284,6 @@ export default {
   InfiniteScroll,
   PageHeader,
   CascaderPanel,
-  Avatar,
   Drawer,
   Popconfirm,
   Skeleton,
@@ -302,5 +291,6 @@ export default {
   Empty,
   Descriptions,
   DescriptionsItem,
-  Result
+  Result,
+  Query
 };
