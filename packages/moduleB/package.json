@@ -1,6 +1,6 @@
 {
   "name": "query-pccc",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A Component Library for Vue.js.",
   "main": "lib/element-ui.common.js",
   "files": [
@@ -67,7 +67,7 @@
     "babel-helper-vue-jsx-merge-props": "^2.0.0",
     "deepmerge": "^1.2.0",
     "normalize-wheel": "^1.0.1",
-    "pui-test": "^2.15.10",
+    "pui-test": "^2.15.11",
     "resize-observer-polyfill": "^1.5.0",
     "throttle-debounce": "^1.0.1",
     "vue": "2.5.17",
