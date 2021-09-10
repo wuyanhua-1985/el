@@ -1,6 +1,6 @@
 <template>
   <div>
-    query
+    query-pccc
   </el-alert>
   </div>
 </template>
