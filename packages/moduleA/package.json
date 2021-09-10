@@ -1,5 +1,5 @@
 {
-  "name": "element-ui",
+  "name": "pui",
   "version": "2.15.7",
   "description": "A Component Library for Vue.js.",
   "main": "lib/element-ui.common.js",
@@ -149,5 +149,5 @@
     "webpack-dev-server": "^3.1.11",
     "webpack-node-externals": "^1.7.2"
   },
-  "gitHead": "0ac4e26dd089e9f3b37127c6bb2f939fee2254ee"
+  "gitHead": "b895fdf06163add356e27356076f6f97e3664fd0"
 }
