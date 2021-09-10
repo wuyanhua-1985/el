@@ -1,6 +1,6 @@
 {
   "name": "query",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Component Library for Vue.js.",
   "main": "lib/element-ui.common.js",
   "files": [
@@ -66,8 +66,8 @@
     "async-validator": "~1.8.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.0",
     "deepmerge": "^1.2.0",
-    "pui": "^2.15.7",
     "normalize-wheel": "^1.0.1",
+    "pui": "^2.15.8",
     "resize-observer-polyfill": "^1.5.0",
     "throttle-debounce": "^1.0.1",
     "vue": "2.5.17",
