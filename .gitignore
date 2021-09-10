@@ -39,12 +39,10 @@ packages/moduleA/yarn.lock
 packages/moduleB/yarn.lock
 packages/moduleA/examples/element-ui
 packages/moduleA/examples/pages/en-US
-packages/moduleA/examples/pages/zh-CN
 packages/moduleA/examples/pages/es
 packages/moduleA/examples/pages/fr-FR
 packages/moduleB/examples/element-ui
 packages/moduleB/examples/pages/en-US
-packages/moduleB/examples/pages/zh-CN
 packages/moduleB/xamples/pages/es
 packages/moduleB/examples/pages/fr-FR
 packages/moduleB/fe.element/element-ui
