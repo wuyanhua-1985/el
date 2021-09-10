@@ -149,5 +149,5 @@
     "webpack-dev-server": "^3.1.11",
     "webpack-node-externals": "^1.7.2"
   },
-  "gitHead": "d6732d50064609393457f612633da915416c0132"
+  "gitHead": "dd0bccd3df531d38d1e2a10c2923ab236b2b4aba"
 }
