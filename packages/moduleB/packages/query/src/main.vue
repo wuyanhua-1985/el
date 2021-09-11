@@ -1,7 +1,6 @@
 <template>
   <div>
     query-pccc
-  </el-alert>
   </div>
 </template>
 

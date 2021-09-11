@@ -5,8 +5,7 @@
 :::demo Alert 组件提供四种主题，由`type`属性指定，默认值为`info`。
 ```html
 <template>
-  <el-query>
-  </el-query>
+
 </template>
 ```
 :::
