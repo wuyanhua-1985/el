@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 76);
+/******/ 	return __webpack_require__(__webpack_require__.s = 151);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -156,7 +156,12 @@ function normalizeComponent (
     options._ssrRegister = hook
   } else if (injectStyles) {
     hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
       : injectStyles
   }
 
@@ -165,7 +170,7 @@ function normalizeComponent (
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
       options._injectStyles = hook
-      // register for functioal component in vue file
+      // register for functional component in vue file
       var originalRender = options.render
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -217,6 +222,478 @@ module.exports = require("element-ui/lib/scrollbar");
 
 /***/ }),
 
+/***/ 151:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./packages/date-picker/src/picker.vue + 4 modules
+var picker = __webpack_require__(34);
+
+// EXTERNAL MODULE: ./packages/date-picker/src/panel/time.vue + 4 modules
+var time = __webpack_require__(28);
+
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/panel/time-range.vue?vue&type=template&id=fb28660e&
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "transition",
+    {
+      attrs: { name: "el-zoom-in-top" },
+      on: {
+        "after-leave": function($event) {
+          _vm.$emit("dodestroy")
+        }
+      }
+    },
+    [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.visible,
+              expression: "visible"
+            }
+          ],
+          staticClass: "el-time-range-picker el-picker-panel el-popper",
+          class: _vm.popperClass
+        },
+        [
+          _c("div", { staticClass: "el-time-range-picker__content" }, [
+            _c("div", { staticClass: "el-time-range-picker__cell" }, [
+              _c("div", { staticClass: "el-time-range-picker__header" }, [
+                _vm._v(_vm._s(_vm.t("el.datepicker.startTime")))
+              ]),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "el-time-range-picker__body el-time-panel__content",
+                  class: {
+                    "has-seconds": _vm.showSeconds,
+                    "is-arrow": _vm.arrowControl
+                  }
+                },
+                [
+                  _c("time-spinner", {
+                    ref: "minSpinner",
+                    attrs: {
+                      "show-seconds": _vm.showSeconds,
+                      "am-pm-mode": _vm.amPmMode,
+                      "arrow-control": _vm.arrowControl,
+                      date: _vm.minDate
+                    },
+                    on: {
+                      change: _vm.handleMinChange,
+                      "select-range": _vm.setMinSelectionRange
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
+            _c("div", { staticClass: "el-time-range-picker__cell" }, [
+              _c("div", { staticClass: "el-time-range-picker__header" }, [
+                _vm._v(_vm._s(_vm.t("el.datepicker.endTime")))
+              ]),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "el-time-range-picker__body el-time-panel__content",
+                  class: {
+                    "has-seconds": _vm.showSeconds,
+                    "is-arrow": _vm.arrowControl
+                  }
+                },
+                [
+                  _c("time-spinner", {
+                    ref: "maxSpinner",
+                    attrs: {
+                      "show-seconds": _vm.showSeconds,
+                      "am-pm-mode": _vm.amPmMode,
+                      "arrow-control": _vm.arrowControl,
+                      date: _vm.maxDate
+                    },
+                    on: {
+                      change: _vm.handleMaxChange,
+                      "select-range": _vm.setMaxSelectionRange
+                    }
+                  })
+                ],
+                1
+              )
+            ])
+          ]),
+          _c("div", { staticClass: "el-time-panel__footer" }, [
+            _c(
+              "button",
+              {
+                staticClass: "el-time-panel__btn cancel",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    _vm.handleCancel()
+                  }
+                }
+              },
+              [_vm._v(_vm._s(_vm.t("el.datepicker.cancel")))]
+            ),
+            _c(
+              "button",
+              {
+                staticClass: "el-time-panel__btn confirm",
+                attrs: { type: "button", disabled: _vm.btnDisabled },
+                on: {
+                  click: function($event) {
+                    _vm.handleConfirm()
+                  }
+                }
+              },
+              [_vm._v(_vm._s(_vm.t("el.datepicker.confirm")))]
+            )
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+// CONCATENATED MODULE: ./packages/date-picker/src/panel/time-range.vue?vue&type=template&id=fb28660e&
+
+// EXTERNAL MODULE: external "element-ui/lib/utils/date-util"
+var date_util_ = __webpack_require__(1);
+
+// EXTERNAL MODULE: external "element-ui/lib/mixins/locale"
+var locale_ = __webpack_require__(6);
+var locale_default = /*#__PURE__*/__webpack_require__.n(locale_);
+
+// EXTERNAL MODULE: ./packages/date-picker/src/basic/time-spinner.vue + 4 modules
+var time_spinner = __webpack_require__(38);
+
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/babel-loader/lib!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/panel/time-range.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+var MIN_TIME = Object(date_util_["parseDate"])('00:00:00', 'HH:mm:ss');
+var MAX_TIME = Object(date_util_["parseDate"])('23:59:59', 'HH:mm:ss');
+
+var time_rangevue_type_script_lang_js_minTimeOfDay = function minTimeOfDay(date) {
+  return Object(date_util_["modifyDate"])(MIN_TIME, date.getFullYear(), date.getMonth(), date.getDate());
+};
+
+var time_rangevue_type_script_lang_js_maxTimeOfDay = function maxTimeOfDay(date) {
+  return Object(date_util_["modifyDate"])(MAX_TIME, date.getFullYear(), date.getMonth(), date.getDate());
+};
+
+// increase time by amount of milliseconds, but within the range of day
+var advanceTime = function advanceTime(date, amount) {
+  return new Date(Math.min(date.getTime() + amount, time_rangevue_type_script_lang_js_maxTimeOfDay(date).getTime()));
+};
+
+/* harmony default export */ var time_rangevue_type_script_lang_js_ = ({
+  mixins: [locale_default.a],
+
+  components: { TimeSpinner: time_spinner["a" /* default */] },
+
+  computed: {
+    showSeconds: function showSeconds() {
+      return (this.format || '').indexOf('ss') !== -1;
+    },
+    offset: function offset() {
+      return this.showSeconds ? 11 : 8;
+    },
+    spinner: function spinner() {
+      return this.selectionRange[0] < this.offset ? this.$refs.minSpinner : this.$refs.maxSpinner;
+    },
+    btnDisabled: function btnDisabled() {
+      return this.minDate.getTime() > this.maxDate.getTime();
+    },
+    amPmMode: function amPmMode() {
+      if ((this.format || '').indexOf('A') !== -1) return 'A';
+      if ((this.format || '').indexOf('a') !== -1) return 'a';
+      return '';
+    }
+  },
+
+  data: function data() {
+    return {
+      popperClass: '',
+      minDate: new Date(),
+      maxDate: new Date(),
+      value: [],
+      oldValue: [new Date(), new Date()],
+      defaultValue: null,
+      format: 'HH:mm:ss',
+      visible: false,
+      selectionRange: [0, 2],
+      arrowControl: false
+    };
+  },
+
+
+  watch: {
+    value: function value(_value) {
+      if (Array.isArray(_value)) {
+        this.minDate = new Date(_value[0]);
+        this.maxDate = new Date(_value[1]);
+      } else {
+        if (Array.isArray(this.defaultValue)) {
+          this.minDate = new Date(this.defaultValue[0]);
+          this.maxDate = new Date(this.defaultValue[1]);
+        } else if (this.defaultValue) {
+          this.minDate = new Date(this.defaultValue);
+          this.maxDate = advanceTime(new Date(this.defaultValue), 60 * 60 * 1000);
+        } else {
+          this.minDate = new Date();
+          this.maxDate = advanceTime(new Date(), 60 * 60 * 1000);
+        }
+      }
+    },
+    visible: function visible(val) {
+      var _this = this;
+
+      if (val) {
+        this.oldValue = this.value;
+        this.$nextTick(function () {
+          return _this.$refs.minSpinner.emitSelectRange('hours');
+        });
+      }
+    }
+  },
+
+  methods: {
+    handleClear: function handleClear() {
+      this.$emit('pick', null);
+    },
+    handleCancel: function handleCancel() {
+      this.$emit('pick', this.oldValue);
+    },
+    handleMinChange: function handleMinChange(date) {
+      this.minDate = Object(date_util_["clearMilliseconds"])(date);
+      this.handleChange();
+    },
+    handleMaxChange: function handleMaxChange(date) {
+      this.maxDate = Object(date_util_["clearMilliseconds"])(date);
+      this.handleChange();
+    },
+    handleChange: function handleChange() {
+      if (this.isValidValue([this.minDate, this.maxDate])) {
+        this.$refs.minSpinner.selectableRange = [[time_rangevue_type_script_lang_js_minTimeOfDay(this.minDate), this.maxDate]];
+        this.$refs.maxSpinner.selectableRange = [[this.minDate, time_rangevue_type_script_lang_js_maxTimeOfDay(this.maxDate)]];
+        this.$emit('pick', [this.minDate, this.maxDate], true);
+      }
+    },
+    setMinSelectionRange: function setMinSelectionRange(start, end) {
+      this.$emit('select-range', start, end, 'min');
+      this.selectionRange = [start, end];
+    },
+    setMaxSelectionRange: function setMaxSelectionRange(start, end) {
+      this.$emit('select-range', start, end, 'max');
+      this.selectionRange = [start + this.offset, end + this.offset];
+    },
+    handleConfirm: function handleConfirm() {
+      var visible = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      var minSelectableRange = this.$refs.minSpinner.selectableRange;
+      var maxSelectableRange = this.$refs.maxSpinner.selectableRange;
+
+      this.minDate = Object(date_util_["limitTimeRange"])(this.minDate, minSelectableRange, this.format);
+      this.maxDate = Object(date_util_["limitTimeRange"])(this.maxDate, maxSelectableRange, this.format);
+
+      this.$emit('pick', [this.minDate, this.maxDate], visible);
+    },
+    adjustSpinners: function adjustSpinners() {
+      this.$refs.minSpinner.adjustSpinners();
+      this.$refs.maxSpinner.adjustSpinners();
+    },
+    changeSelectionRange: function changeSelectionRange(step) {
+      var list = this.showSeconds ? [0, 3, 6, 11, 14, 17] : [0, 3, 8, 11];
+      var mapping = ['hours', 'minutes'].concat(this.showSeconds ? ['seconds'] : []);
+      var index = list.indexOf(this.selectionRange[0]);
+      var next = (index + step + list.length) % list.length;
+      var half = list.length / 2;
+      if (next < half) {
+        this.$refs.minSpinner.emitSelectRange(mapping[next]);
+      } else {
+        this.$refs.maxSpinner.emitSelectRange(mapping[next - half]);
+      }
+    },
+    isValidValue: function isValidValue(date) {
+      return Array.isArray(date) && Object(date_util_["timeWithinRange"])(this.minDate, this.$refs.minSpinner.selectableRange) && Object(date_util_["timeWithinRange"])(this.maxDate, this.$refs.maxSpinner.selectableRange);
+    },
+    handleKeydown: function handleKeydown(event) {
+      var keyCode = event.keyCode;
+      var mapping = { 38: -1, 40: 1, 37: -1, 39: 1 };
+
+      // Left or Right
+      if (keyCode === 37 || keyCode === 39) {
+        var step = mapping[keyCode];
+        this.changeSelectionRange(step);
+        event.preventDefault();
+        return;
+      }
+
+      // Up or Down
+      if (keyCode === 38 || keyCode === 40) {
+        var _step = mapping[keyCode];
+        this.spinner.scrollDown(_step);
+        event.preventDefault();
+        return;
+      }
+    }
+  }
+});
+// CONCATENATED MODULE: ./packages/date-picker/src/panel/time-range.vue?vue&type=script&lang=js&
+ /* harmony default export */ var panel_time_rangevue_type_script_lang_js_ = (time_rangevue_type_script_lang_js_); 
+// EXTERNAL MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(0);
+
+// CONCATENATED MODULE: ./packages/date-picker/src/panel/time-range.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  panel_time_rangevue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "packages/date-picker/src/panel/time-range.vue"
+/* harmony default export */ var time_range = (component.exports);
+// CONCATENATED MODULE: ./packages/date-picker/src/picker/time-picker.js
+
+
+
+
+/* harmony default export */ var time_picker = ({
+  mixins: [picker["a" /* default */]],
+
+  name: 'ElTimePicker',
+
+  props: {
+    isRange: Boolean,
+    arrowControl: Boolean
+  },
+
+  data: function data() {
+    return {
+      type: ''
+    };
+  },
+
+
+  watch: {
+    isRange: function isRange(_isRange) {
+      if (this.picker) {
+        this.unmountPicker();
+        this.type = _isRange ? 'timerange' : 'time';
+        this.panel = _isRange ? time_range : time["a" /* default */];
+        this.mountPicker();
+      } else {
+        this.type = _isRange ? 'timerange' : 'time';
+        this.panel = _isRange ? time_range : time["a" /* default */];
+      }
+    }
+  },
+
+  created: function created() {
+    this.type = this.isRange ? 'timerange' : 'time';
+    this.panel = this.isRange ? time_range : time["a" /* default */];
+  }
+});
+// CONCATENATED MODULE: ./packages/time-picker/index.js
+
+
+/* istanbul ignore next */
+time_picker.install = function (Vue) {
+  Vue.component(time_picker.name, time_picker);
+};
+
+/* harmony default export */ var packages_time_picker = __webpack_exports__["default"] = (time_picker);
+
+/***/ }),
+
 /***/ 2:
 /***/ (function(module, exports) {
 
@@ -224,12 +701,12 @@ module.exports = require("element-ui/lib/utils/dom");
 
 /***/ }),
 
-/***/ 27:
+/***/ 28:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/panel/time.vue?vue&type=template&id=3d939089&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/panel/time.vue?vue&type=template&id=3d939089&
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -327,9 +804,9 @@ var locale_ = __webpack_require__(6);
 var locale_default = /*#__PURE__*/__webpack_require__.n(locale_);
 
 // EXTERNAL MODULE: ./packages/date-picker/src/basic/time-spinner.vue + 4 modules
-var time_spinner = __webpack_require__(34);
+var time_spinner = __webpack_require__(38);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/panel/time.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/babel-loader/lib!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/panel/time.vue?vue&type=script&lang=js&
 //
 //
 //
@@ -523,7 +1000,7 @@ var time_spinner = __webpack_require__(34);
 });
 // CONCATENATED MODULE: ./packages/date-picker/src/panel/time.vue?vue&type=script&lang=js&
  /* harmony default export */ var panel_timevue_type_script_lang_js_ = (timevue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+// EXTERNAL MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__(0);
 
 // CONCATENATED MODULE: ./packages/date-picker/src/panel/time.vue
@@ -552,7 +1029,7 @@ component.options.__file = "packages/date-picker/src/panel/time.vue"
 
 /***/ }),
 
-/***/ 30:
+/***/ 32:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -587,12 +1064,12 @@ component.options.__file = "packages/date-picker/src/panel/time.vue"
 
 /***/ }),
 
-/***/ 32:
+/***/ 34:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/picker.vue?vue&type=template&id=79ae069f&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/picker.vue?vue&type=template&id=79ae069f&
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -797,7 +1274,7 @@ var input_default = /*#__PURE__*/__webpack_require__.n(input_);
 var merge_ = __webpack_require__(9);
 var merge_default = /*#__PURE__*/__webpack_require__.n(merge_);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/picker.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/babel-loader/lib!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/picker.vue?vue&type=script&lang=js&
 //
 //
 //
@@ -1692,7 +2169,7 @@ var validator = function validator(val) {
 });
 // CONCATENATED MODULE: ./packages/date-picker/src/picker.vue?vue&type=script&lang=js&
  /* harmony default export */ var src_pickervue_type_script_lang_js_ = (pickervue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+// EXTERNAL MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__(0);
 
 // CONCATENATED MODULE: ./packages/date-picker/src/picker.vue
@@ -1721,12 +2198,12 @@ component.options.__file = "packages/date-picker/src/picker.vue"
 
 /***/ }),
 
-/***/ 34:
+/***/ 38:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/basic/time-spinner.vue?vue&type=template&id=1facadeb&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/basic/time-spinner.vue?vue&type=template&id=1facadeb&
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -1786,8 +2263,7 @@ var render = function() {
                     )
                   ]
                 )
-              }),
-              0
+              })
             ),
             _c(
               "el-scrollbar",
@@ -1827,8 +2303,7 @@ var render = function() {
                   },
                   [_vm._v(_vm._s(("0" + key).slice(-2)))]
                 )
-              }),
-              0
+              })
             ),
             _c(
               "el-scrollbar",
@@ -1876,8 +2351,7 @@ var render = function() {
                   },
                   [_vm._v(_vm._s(("0" + key).slice(-2)))]
                 )
-              }),
-              0
+              })
             )
           ]
         : _vm._e(),
@@ -1942,8 +2416,7 @@ var render = function() {
                         )
                       ]
                     )
-                  }),
-                  0
+                  })
                 )
               ]
             ),
@@ -2003,8 +2476,7 @@ var render = function() {
                         )
                       ]
                     )
-                  }),
-                  0
+                  })
                 )
               ]
             ),
@@ -2065,8 +2537,7 @@ var render = function() {
                             )
                           ]
                         )
-                      }),
-                      0
+                      })
                     )
                   ]
                 )
@@ -2091,9 +2562,9 @@ var scrollbar_ = __webpack_require__(15);
 var scrollbar_default = /*#__PURE__*/__webpack_require__.n(scrollbar_);
 
 // EXTERNAL MODULE: ./src/directives/repeat-click.js
-var repeat_click = __webpack_require__(30);
+var repeat_click = __webpack_require__(32);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/basic/time-spinner.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/babel-loader/lib!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/basic/time-spinner.vue?vue&type=script&lang=js&
 //
 //
 //
@@ -2393,7 +2864,7 @@ var repeat_click = __webpack_require__(30);
 });
 // CONCATENATED MODULE: ./packages/date-picker/src/basic/time-spinner.vue?vue&type=script&lang=js&
  /* harmony default export */ var basic_time_spinnervue_type_script_lang_js_ = (time_spinnervue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+// EXTERNAL MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__(0);
 
 // CONCATENATED MODULE: ./packages/date-picker/src/basic/time-spinner.vue
@@ -2447,477 +2918,6 @@ module.exports = require("element-ui/lib/mixins/locale");
 /***/ (function(module, exports) {
 
 module.exports = require("vue");
-
-/***/ }),
-
-/***/ 76:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: ./packages/date-picker/src/picker.vue + 4 modules
-var picker = __webpack_require__(32);
-
-// EXTERNAL MODULE: ./packages/date-picker/src/panel/time.vue + 4 modules
-var time = __webpack_require__(27);
-
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/panel/time-range.vue?vue&type=template&id=fb28660e&
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "transition",
-    {
-      attrs: { name: "el-zoom-in-top" },
-      on: {
-        "after-leave": function($event) {
-          _vm.$emit("dodestroy")
-        }
-      }
-    },
-    [
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.visible,
-              expression: "visible"
-            }
-          ],
-          staticClass: "el-time-range-picker el-picker-panel el-popper",
-          class: _vm.popperClass
-        },
-        [
-          _c("div", { staticClass: "el-time-range-picker__content" }, [
-            _c("div", { staticClass: "el-time-range-picker__cell" }, [
-              _c("div", { staticClass: "el-time-range-picker__header" }, [
-                _vm._v(_vm._s(_vm.t("el.datepicker.startTime")))
-              ]),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "el-time-range-picker__body el-time-panel__content",
-                  class: {
-                    "has-seconds": _vm.showSeconds,
-                    "is-arrow": _vm.arrowControl
-                  }
-                },
-                [
-                  _c("time-spinner", {
-                    ref: "minSpinner",
-                    attrs: {
-                      "show-seconds": _vm.showSeconds,
-                      "am-pm-mode": _vm.amPmMode,
-                      "arrow-control": _vm.arrowControl,
-                      date: _vm.minDate
-                    },
-                    on: {
-                      change: _vm.handleMinChange,
-                      "select-range": _vm.setMinSelectionRange
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _c("div", { staticClass: "el-time-range-picker__cell" }, [
-              _c("div", { staticClass: "el-time-range-picker__header" }, [
-                _vm._v(_vm._s(_vm.t("el.datepicker.endTime")))
-              ]),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "el-time-range-picker__body el-time-panel__content",
-                  class: {
-                    "has-seconds": _vm.showSeconds,
-                    "is-arrow": _vm.arrowControl
-                  }
-                },
-                [
-                  _c("time-spinner", {
-                    ref: "maxSpinner",
-                    attrs: {
-                      "show-seconds": _vm.showSeconds,
-                      "am-pm-mode": _vm.amPmMode,
-                      "arrow-control": _vm.arrowControl,
-                      date: _vm.maxDate
-                    },
-                    on: {
-                      change: _vm.handleMaxChange,
-                      "select-range": _vm.setMaxSelectionRange
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ]),
-          _c("div", { staticClass: "el-time-panel__footer" }, [
-            _c(
-              "button",
-              {
-                staticClass: "el-time-panel__btn cancel",
-                attrs: { type: "button" },
-                on: {
-                  click: function($event) {
-                    _vm.handleCancel()
-                  }
-                }
-              },
-              [_vm._v(_vm._s(_vm.t("el.datepicker.cancel")))]
-            ),
-            _c(
-              "button",
-              {
-                staticClass: "el-time-panel__btn confirm",
-                attrs: { type: "button", disabled: _vm.btnDisabled },
-                on: {
-                  click: function($event) {
-                    _vm.handleConfirm()
-                  }
-                }
-              },
-              [_vm._v(_vm._s(_vm.t("el.datepicker.confirm")))]
-            )
-          ])
-        ]
-      )
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-// CONCATENATED MODULE: ./packages/date-picker/src/panel/time-range.vue?vue&type=template&id=fb28660e&
-
-// EXTERNAL MODULE: external "element-ui/lib/utils/date-util"
-var date_util_ = __webpack_require__(1);
-
-// EXTERNAL MODULE: external "element-ui/lib/mixins/locale"
-var locale_ = __webpack_require__(6);
-var locale_default = /*#__PURE__*/__webpack_require__.n(locale_);
-
-// EXTERNAL MODULE: ./packages/date-picker/src/basic/time-spinner.vue + 4 modules
-var time_spinner = __webpack_require__(34);
-
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./packages/date-picker/src/panel/time-range.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-var MIN_TIME = Object(date_util_["parseDate"])('00:00:00', 'HH:mm:ss');
-var MAX_TIME = Object(date_util_["parseDate"])('23:59:59', 'HH:mm:ss');
-
-var time_rangevue_type_script_lang_js_minTimeOfDay = function minTimeOfDay(date) {
-  return Object(date_util_["modifyDate"])(MIN_TIME, date.getFullYear(), date.getMonth(), date.getDate());
-};
-
-var time_rangevue_type_script_lang_js_maxTimeOfDay = function maxTimeOfDay(date) {
-  return Object(date_util_["modifyDate"])(MAX_TIME, date.getFullYear(), date.getMonth(), date.getDate());
-};
-
-// increase time by amount of milliseconds, but within the range of day
-var advanceTime = function advanceTime(date, amount) {
-  return new Date(Math.min(date.getTime() + amount, time_rangevue_type_script_lang_js_maxTimeOfDay(date).getTime()));
-};
-
-/* harmony default export */ var time_rangevue_type_script_lang_js_ = ({
-  mixins: [locale_default.a],
-
-  components: { TimeSpinner: time_spinner["a" /* default */] },
-
-  computed: {
-    showSeconds: function showSeconds() {
-      return (this.format || '').indexOf('ss') !== -1;
-    },
-    offset: function offset() {
-      return this.showSeconds ? 11 : 8;
-    },
-    spinner: function spinner() {
-      return this.selectionRange[0] < this.offset ? this.$refs.minSpinner : this.$refs.maxSpinner;
-    },
-    btnDisabled: function btnDisabled() {
-      return this.minDate.getTime() > this.maxDate.getTime();
-    },
-    amPmMode: function amPmMode() {
-      if ((this.format || '').indexOf('A') !== -1) return 'A';
-      if ((this.format || '').indexOf('a') !== -1) return 'a';
-      return '';
-    }
-  },
-
-  data: function data() {
-    return {
-      popperClass: '',
-      minDate: new Date(),
-      maxDate: new Date(),
-      value: [],
-      oldValue: [new Date(), new Date()],
-      defaultValue: null,
-      format: 'HH:mm:ss',
-      visible: false,
-      selectionRange: [0, 2],
-      arrowControl: false
-    };
-  },
-
-
-  watch: {
-    value: function value(_value) {
-      if (Array.isArray(_value)) {
-        this.minDate = new Date(_value[0]);
-        this.maxDate = new Date(_value[1]);
-      } else {
-        if (Array.isArray(this.defaultValue)) {
-          this.minDate = new Date(this.defaultValue[0]);
-          this.maxDate = new Date(this.defaultValue[1]);
-        } else if (this.defaultValue) {
-          this.minDate = new Date(this.defaultValue);
-          this.maxDate = advanceTime(new Date(this.defaultValue), 60 * 60 * 1000);
-        } else {
-          this.minDate = new Date();
-          this.maxDate = advanceTime(new Date(), 60 * 60 * 1000);
-        }
-      }
-    },
-    visible: function visible(val) {
-      var _this = this;
-
-      if (val) {
-        this.oldValue = this.value;
-        this.$nextTick(function () {
-          return _this.$refs.minSpinner.emitSelectRange('hours');
-        });
-      }
-    }
-  },
-
-  methods: {
-    handleClear: function handleClear() {
-      this.$emit('pick', null);
-    },
-    handleCancel: function handleCancel() {
-      this.$emit('pick', this.oldValue);
-    },
-    handleMinChange: function handleMinChange(date) {
-      this.minDate = Object(date_util_["clearMilliseconds"])(date);
-      this.handleChange();
-    },
-    handleMaxChange: function handleMaxChange(date) {
-      this.maxDate = Object(date_util_["clearMilliseconds"])(date);
-      this.handleChange();
-    },
-    handleChange: function handleChange() {
-      if (this.isValidValue([this.minDate, this.maxDate])) {
-        this.$refs.minSpinner.selectableRange = [[time_rangevue_type_script_lang_js_minTimeOfDay(this.minDate), this.maxDate]];
-        this.$refs.maxSpinner.selectableRange = [[this.minDate, time_rangevue_type_script_lang_js_maxTimeOfDay(this.maxDate)]];
-        this.$emit('pick', [this.minDate, this.maxDate], true);
-      }
-    },
-    setMinSelectionRange: function setMinSelectionRange(start, end) {
-      this.$emit('select-range', start, end, 'min');
-      this.selectionRange = [start, end];
-    },
-    setMaxSelectionRange: function setMaxSelectionRange(start, end) {
-      this.$emit('select-range', start, end, 'max');
-      this.selectionRange = [start + this.offset, end + this.offset];
-    },
-    handleConfirm: function handleConfirm() {
-      var visible = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-      var minSelectableRange = this.$refs.minSpinner.selectableRange;
-      var maxSelectableRange = this.$refs.maxSpinner.selectableRange;
-
-      this.minDate = Object(date_util_["limitTimeRange"])(this.minDate, minSelectableRange, this.format);
-      this.maxDate = Object(date_util_["limitTimeRange"])(this.maxDate, maxSelectableRange, this.format);
-
-      this.$emit('pick', [this.minDate, this.maxDate], visible);
-    },
-    adjustSpinners: function adjustSpinners() {
-      this.$refs.minSpinner.adjustSpinners();
-      this.$refs.maxSpinner.adjustSpinners();
-    },
-    changeSelectionRange: function changeSelectionRange(step) {
-      var list = this.showSeconds ? [0, 3, 6, 11, 14, 17] : [0, 3, 8, 11];
-      var mapping = ['hours', 'minutes'].concat(this.showSeconds ? ['seconds'] : []);
-      var index = list.indexOf(this.selectionRange[0]);
-      var next = (index + step + list.length) % list.length;
-      var half = list.length / 2;
-      if (next < half) {
-        this.$refs.minSpinner.emitSelectRange(mapping[next]);
-      } else {
-        this.$refs.maxSpinner.emitSelectRange(mapping[next - half]);
-      }
-    },
-    isValidValue: function isValidValue(date) {
-      return Array.isArray(date) && Object(date_util_["timeWithinRange"])(this.minDate, this.$refs.minSpinner.selectableRange) && Object(date_util_["timeWithinRange"])(this.maxDate, this.$refs.maxSpinner.selectableRange);
-    },
-    handleKeydown: function handleKeydown(event) {
-      var keyCode = event.keyCode;
-      var mapping = { 38: -1, 40: 1, 37: -1, 39: 1 };
-
-      // Left or Right
-      if (keyCode === 37 || keyCode === 39) {
-        var step = mapping[keyCode];
-        this.changeSelectionRange(step);
-        event.preventDefault();
-        return;
-      }
-
-      // Up or Down
-      if (keyCode === 38 || keyCode === 40) {
-        var _step = mapping[keyCode];
-        this.spinner.scrollDown(_step);
-        event.preventDefault();
-        return;
-      }
-    }
-  }
-});
-// CONCATENATED MODULE: ./packages/date-picker/src/panel/time-range.vue?vue&type=script&lang=js&
- /* harmony default export */ var panel_time_rangevue_type_script_lang_js_ = (time_rangevue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(0);
-
-// CONCATENATED MODULE: ./packages/date-picker/src/panel/time-range.vue
-
-
-
-
-
-/* normalize component */
-
-var component = Object(componentNormalizer["a" /* default */])(
-  panel_time_rangevue_type_script_lang_js_,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "packages/date-picker/src/panel/time-range.vue"
-/* harmony default export */ var time_range = (component.exports);
-// CONCATENATED MODULE: ./packages/date-picker/src/picker/time-picker.js
-
-
-
-
-/* harmony default export */ var time_picker = ({
-  mixins: [picker["a" /* default */]],
-
-  name: 'ElTimePicker',
-
-  props: {
-    isRange: Boolean,
-    arrowControl: Boolean
-  },
-
-  data: function data() {
-    return {
-      type: ''
-    };
-  },
-
-
-  watch: {
-    isRange: function isRange(_isRange) {
-      if (this.picker) {
-        this.unmountPicker();
-        this.type = _isRange ? 'timerange' : 'time';
-        this.panel = _isRange ? time_range : time["a" /* default */];
-        this.mountPicker();
-      } else {
-        this.type = _isRange ? 'timerange' : 'time';
-        this.panel = _isRange ? time_range : time["a" /* default */];
-      }
-    }
-  },
-
-  created: function created() {
-    this.type = this.isRange ? 'timerange' : 'time';
-    this.panel = this.isRange ? time_range : time["a" /* default */];
-  }
-});
-// CONCATENATED MODULE: ./packages/time-picker/index.js
-
-
-/* istanbul ignore next */
-time_picker.install = function (Vue) {
-  Vue.component(time_picker.name, time_picker);
-};
-
-/* harmony default export */ var packages_time_picker = __webpack_exports__["default"] = (time_picker);
 
 /***/ }),
 

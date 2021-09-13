@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 101);
+/******/ 	return __webpack_require__(__webpack_require__.s = 176);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -156,7 +156,12 @@ function normalizeComponent (
     options._ssrRegister = hook
   } else if (injectStyles) {
     hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
       : injectStyles
   }
 
@@ -165,7 +170,7 @@ function normalizeComponent (
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
       options._injectStyles = hook
-      // register for functioal component in vue file
+      // register for functional component in vue file
       var originalRender = options.render
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -189,94 +194,19 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 101:
+/***/ 176:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/alert/src/main.vue?vue&type=template&id=6e53341b&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/alert/src/main.vue?vue&type=template&id=6e53341b&
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("transition", { attrs: { name: "el-alert-fade" } }, [
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.visible,
-            expression: "visible"
-          }
-        ],
-        staticClass: "el-alert",
-        class: [
-          _vm.typeClass,
-          _vm.center ? "is-center" : "",
-          "is-" + _vm.effect
-        ],
-        attrs: { role: "alert" }
-      },
-      [
-        _vm.showIcon
-          ? _c("i", {
-              staticClass: "el-alert__icon",
-              class: [_vm.iconClass, _vm.isBigIcon]
-            })
-          : _vm._e(),
-        _c("div", { staticClass: "el-alert__content" }, [
-          _vm.title || _vm.$slots.title
-            ? _c(
-                "span",
-                { staticClass: "el-alert__title", class: [_vm.isBoldTitle] },
-                [_vm._t("title", [_vm._v(_vm._s(_vm.title))])],
-                2
-              )
-            : _vm._e(),
-          _vm.$slots.default && !_vm.description
-            ? _c(
-                "p",
-                { staticClass: "el-alert__description" },
-                [_vm._t("default")],
-                2
-              )
-            : _vm._e(),
-          _vm.description && !_vm.$slots.default
-            ? _c("p", { staticClass: "el-alert__description" }, [
-                _vm._v(_vm._s(_vm.description))
-              ])
-            : _vm._e(),
-          _c(
-            "i",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.closable,
-                  expression: "closable"
-                }
-              ],
-              staticClass: "el-alert__closebtn",
-              class: {
-                "is-customed": _vm.closeText !== "",
-                "el-icon-close": _vm.closeText === ""
-              },
-              on: {
-                click: function($event) {
-                  _vm.close()
-                }
-              }
-            },
-            [_vm._v(_vm._s(_vm.closeText))]
-          )
-        ])
-      ]
-    )
-  ])
+  return _c("div", [_vm._v("test-122")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -284,7 +214,8 @@ render._withStripped = true
 
 // CONCATENATED MODULE: ./packages/alert/src/main.vue?vue&type=template&id=6e53341b&
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./packages/alert/src/main.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/babel-loader/lib!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/alert/src/main.vue?vue&type=script&lang=js&
+//
 //
 //
 //
@@ -378,7 +309,7 @@ var TYPE_CLASSES_MAP = {
 });
 // CONCATENATED MODULE: ./packages/alert/src/main.vue?vue&type=script&lang=js&
  /* harmony default export */ var src_mainvue_type_script_lang_js_ = (mainvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+// EXTERNAL MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__(0);
 
 // CONCATENATED MODULE: ./packages/alert/src/main.vue

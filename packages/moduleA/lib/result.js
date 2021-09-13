@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 56);
+/******/ 	return __webpack_require__(__webpack_require__.s = 132);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -156,7 +156,12 @@ function normalizeComponent (
     options._ssrRegister = hook
   } else if (injectStyles) {
     hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
       : injectStyles
   }
 
@@ -165,7 +170,7 @@ function normalizeComponent (
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
       options._injectStyles = hook
-      // register for functioal component in vue file
+      // register for functional component in vue file
       var originalRender = options.render
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -189,13 +194,14 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 56:
+/***/ 132:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/index.vue?vue&type=template&id=3408b139&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/index.vue?vue&type=template&id=3408b139&
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -238,7 +244,7 @@ render._withStripped = true
 
 // CONCATENATED MODULE: ./packages/result/src/index.vue?vue&type=template&id=3408b139&
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-success.vue?vue&type=template&id=18119418&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-success.vue?vue&type=template&id=18119418&
 var icon_successvue_type_template_id_18119418_render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -262,7 +268,7 @@ icon_successvue_type_template_id_18119418_render._withStripped = true
 
 // CONCATENATED MODULE: ./packages/result/src/icon-success.vue?vue&type=template&id=18119418&
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-success.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/babel-loader/lib!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-success.vue?vue&type=script&lang=js&
 //
 //
 //
@@ -277,7 +283,7 @@ icon_successvue_type_template_id_18119418_render._withStripped = true
 });
 // CONCATENATED MODULE: ./packages/result/src/icon-success.vue?vue&type=script&lang=js&
  /* harmony default export */ var src_icon_successvue_type_script_lang_js_ = (icon_successvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+// EXTERNAL MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__(0);
 
 // CONCATENATED MODULE: ./packages/result/src/icon-success.vue
@@ -303,7 +309,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 if (false) { var api; }
 component.options.__file = "packages/result/src/icon-success.vue"
 /* harmony default export */ var icon_success = (component.exports);
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-error.vue?vue&type=template&id=21199246&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-error.vue?vue&type=template&id=21199246&
 var icon_errorvue_type_template_id_21199246_render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -327,7 +333,7 @@ icon_errorvue_type_template_id_21199246_render._withStripped = true
 
 // CONCATENATED MODULE: ./packages/result/src/icon-error.vue?vue&type=template&id=21199246&
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-error.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/babel-loader/lib!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-error.vue?vue&type=script&lang=js&
 //
 //
 //
@@ -365,7 +371,7 @@ var icon_error_component = Object(componentNormalizer["a" /* default */])(
 if (false) { var icon_error_api; }
 icon_error_component.options.__file = "packages/result/src/icon-error.vue"
 /* harmony default export */ var icon_error = (icon_error_component.exports);
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-warning.vue?vue&type=template&id=46fe8f31&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-warning.vue?vue&type=template&id=46fe8f31&
 var icon_warningvue_type_template_id_46fe8f31_render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -389,7 +395,7 @@ icon_warningvue_type_template_id_46fe8f31_render._withStripped = true
 
 // CONCATENATED MODULE: ./packages/result/src/icon-warning.vue?vue&type=template&id=46fe8f31&
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-warning.vue?vue&type=script&lang=ts&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-warning.vue?vue&type=script&lang=ts&
 
 
 
@@ -428,7 +434,7 @@ var icon_warning_component = Object(componentNormalizer["a" /* default */])(
 if (false) { var icon_warning_api; }
 icon_warning_component.options.__file = "packages/result/src/icon-warning.vue"
 /* harmony default export */ var icon_warning = (icon_warning_component.exports);
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-info.vue?vue&type=template&id=19e3de69&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-info.vue?vue&type=template&id=19e3de69&
 var icon_infovue_type_template_id_19e3de69_render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -452,7 +458,7 @@ icon_infovue_type_template_id_19e3de69_render._withStripped = true
 
 // CONCATENATED MODULE: ./packages/result/src/icon-info.vue?vue&type=template&id=19e3de69&
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-info.vue?vue&type=script&lang=ts&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/icon-info.vue?vue&type=script&lang=ts&
 
 
 
@@ -491,7 +497,7 @@ var icon_info_component = Object(componentNormalizer["a" /* default */])(
 if (false) { var icon_info_api; }
 icon_info_component.options.__file = "packages/result/src/icon-info.vue"
 /* harmony default export */ var icon_info = (icon_info_component.exports);
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/index.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: /Users/wuyanhua/Desktop/el/node_modules/babel-loader/lib!/Users/wuyanhua/Desktop/el/node_modules/vue-loader/lib??vue-loader-options!./packages/result/src/index.vue?vue&type=script&lang=js&
 var _components;
 
 //
