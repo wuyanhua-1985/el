@@ -9,10 +9,8 @@
 :::demo Alert 组件提供四种主题，由`type`属性指定，默认值为`info`。
 ```html
 <template>
-  <el-alert
-    title="成功提示的文案"
-    type="success">
-  </el-alert>
+  <el-query>
+  </el-query>
   <el-alert
     title="消息提示的文案"
     type="info">
