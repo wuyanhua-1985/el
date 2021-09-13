@@ -12,7 +12,7 @@
   <el-query>
   </el-query>
   <el-alert
-    title="消息提示的文案"
+    title="消息提示的文案1"
     type="info">
   </el-alert>
   <el-alert
