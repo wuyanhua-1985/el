@@ -1,5 +1,5 @@
 <template>
-  <transition name="el-alert-fade">
+  <!-- <transition name="el-alert-fade">
     <div
       class="el-alert"
       :class="[typeClass, center ? 'is-center' : '', 'is-' + effect]"
@@ -16,7 +16,8 @@
         <i class="el-alert__closebtn" :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }" v-show="closable" @click="close()">{{closeText}}</i>
       </div>
     </div>
-  </transition>
+  </transition> -->
+  <div>test</div>
 </template>
 
 <script type="text/babel">
