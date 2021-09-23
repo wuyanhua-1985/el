@@ -19,6 +19,7 @@ export default function(Vue) {
   function template(string, ...args) {
     if (args.length === 1 && typeof args[0] === 'object') {
       args = args[0];
+      console.log(1);
     }
 
     if (!args || !args.hasOwnProperty) {

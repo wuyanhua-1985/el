@@ -9,9 +9,6 @@
     "packages",
     "types"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "typings": "types/index.d.ts",
   "scripts": {
     "bootstrap": "yarn || npm i",
