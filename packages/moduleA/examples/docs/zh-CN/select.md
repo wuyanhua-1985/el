@@ -8,7 +8,7 @@
 :::demo `v-model`的值为当前被选中的`el-option`的 value 属性值
 ```html
 <template>
-  <el-select v-model="value" placeholder="请选择">
+  <el-select v-model="value" :isD="isD" placeholder="请选择33">
     <el-option
       v-for="item in options"
       :key="item.value"
@@ -22,6 +22,7 @@
   export default {
     data() {
       return {
+        isD: "select-disabled",
         options: [{
           value: '选项1',
           label: '黄金糕'

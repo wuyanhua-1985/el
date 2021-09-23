@@ -1,7 +1,7 @@
 <template>
   <div
     class="el-select"
-    :class="[selectSize ? 'el-select--' + selectSize : '']"
+    :class="[selectSize ? 'el-select--' + selectSize : '', isD]"
     @click.stop="toggleMenu"
     v-clickoutside="handleClose">
     <div
@@ -250,6 +250,7 @@
     directives: { Clickoutside },
 
     props: {
+      isD: String,
       name: String,
       id: String,
       value: {
@@ -731,7 +732,8 @@
       },
 
       toggleMenu() {
-        if (!this.selectDisabled) {
+        console.log(this.$el.className);
+        if (!this.selectDisabled && !this.$el.className.includes('select-disabled')) {
           if (this.menuVisibleOnFocus) {
             this.menuVisibleOnFocus = false;
           } else {

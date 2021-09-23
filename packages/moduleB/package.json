@@ -70,8 +70,7 @@
     "pui-test": "2.15.14",
     "resize-observer-polyfill": "^1.5.0",
     "throttle-debounce": "^1.0.1",
-    "vue": "2.5.17",
-    "wyh-test": "^0.1.1"
+    "vue": "2.5.17"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.6.0",
