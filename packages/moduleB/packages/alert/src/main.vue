@@ -1,5 +1,5 @@
 <template>
-  <div>x</div>
+  <div>x333</div>
 </template>
 
 <script type="text/babel">
