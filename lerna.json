@@ -6,7 +6,7 @@
     "bootstrap": {
       "hoist": true
     },
-    "publish": {
+    "version": {
       "allowBranch": "main",
       "message": "release new version"
     }

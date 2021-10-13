@@ -1,5 +1,5 @@
 <template>
-  <div>222889933333333339999</div>
+  <div>x</div>
 </template>
 
 <script type="text/babel">
