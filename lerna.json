@@ -8,7 +8,7 @@
     },
     "publish": {
       "allowBranch": "main",
-      "message": "chore(release): publish %s"
+      "message": "release new version"
     }
   },
   "version": "independent",
