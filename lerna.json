@@ -9,7 +9,7 @@
     "version": {
       "allowBranch": "main",
       "message": "release new version",
-      "git-tag-version": false
+      "gitTagVersion": false
     }
   },
   "version": "independent",
