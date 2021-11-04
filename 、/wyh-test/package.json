@@ -1,0 +1,23 @@
+{
+  "name": "wyh-test",
+  "version": "0.1.1",
+  "description": "easy test",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuyanhua-1985/wyh-test.git"
+  },
+  "keywords": [
+    "easy",
+    "test"
+  ],
+  "author": "wyh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wuyanhua-1985/wyh-test/issues"
+  },
+  "homepage": "https://github.com/wuyanhua-1985/wyh-test#readme"
+}

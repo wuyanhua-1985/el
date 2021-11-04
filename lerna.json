@@ -8,8 +8,7 @@
     },
     "version": {
       "allowBranch": "main",
-      "message": "release new version",
-      "gitTagVersion": false
+      "message": "release new version"
     }
   },
   "version": "independent",
